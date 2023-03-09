@@ -1,4 +1,4 @@
-"# golang-crud" 
+"# golang-crud-jwt" 
 
 **1. database**
 
