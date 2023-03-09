@@ -31,11 +31,18 @@ require (
 
 **3. Structure**
 
+ ```json
+ 
 --auth
+
 --controller
+
 --middlewares
+
 --models
+
 --responses
+```
 
 **4. API
 
