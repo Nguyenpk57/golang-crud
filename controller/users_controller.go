@@ -6,7 +6,6 @@ import (
 	"golang-crud/models"
 	"golang-crud/responses"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"strconv"
 )
@@ -68,7 +67,7 @@ func (server *Server) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		responses.ERROR(w, http.StatusBadRequest, err)
 		return
 	}
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		responses.ERROR(w, http.StatusUnprocessableEntity, err)
 		return
