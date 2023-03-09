@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
+	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"os"
@@ -53,5 +54,6 @@ func Connect() *sql.DB {
 
 func (server *Server) Run(addr string) {
 	fmt.Println("Listening to port " + addr)
-	log.Fatal(http.ListenAndServe(addr, server.Router))
+	handler := cors.Default().Handler(server.Router)
+	log.Fatal(http.ListenAndServe(addr, handler))
 }
