@@ -54,6 +54,6 @@ func Connect() *sql.DB {
 
 func (server *Server) Run(addr string) {
 	fmt.Println("Listening to port " + addr)
-	handler := cors.Default().Handler(server.Router)
+	handler := cors.AllowAll().Handler(server.Router)
 	log.Fatal(http.ListenAndServe(addr, handler))
 }
